@@ -19,6 +19,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  *
  * @author Carlos
@@ -31,14 +33,15 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Ingreso.findByFechaIngreso", query = "SELECT i FROM Ingreso i WHERE i.fechaIngreso = :fechaIngreso")})
 public class Ingreso implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+
     @Id
     @Basic(optional = false)
     @Column(name = "id")
     private String id;
     
     @Column(name = "fechaIngreso")
-    @Temporal(TemporalType.DATE)      
+    @Temporal(TemporalType.DATE)   
+    //@DateTimeFormat(pattern = "yyyy-MM-dd")   
     private Date fechaIngreso;
     
     @Column(name = "cliente")

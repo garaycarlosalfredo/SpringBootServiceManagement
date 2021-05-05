@@ -1,5 +1,6 @@
 package com.management.repository;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,5 +18,7 @@ public interface IngresoRepository extends CrudRepository <Ingreso, String>{
 	public abstract List<Ingreso> findByNumeroSerieId(Integer numeroSerie);
 	//Buscar todos los ingresos de una fecha
 	//Buscar todos los ingresos de un determinado cliente
+	//Buscar todos los ingresos de un determinado cliente en una fecha
+	public abstract List<Ingreso> findByClienteAndFechaIngreso(String cliente, Date fechaIngreso);
 	
 }

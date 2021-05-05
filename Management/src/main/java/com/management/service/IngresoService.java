@@ -1,5 +1,6 @@
 package com.management.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,6 +33,21 @@ public class IngresoService {
 	
 	public Ingreso guardarIngreso (Ingreso ingreso) {
 		return ingresoRepository.save(ingreso);
+	}
+	//Buscar cliente
+	public List<Ingreso> findByClienteAndFechaIngreso (String cliente, Date fechaIngreso) {
+		return ingresoRepository.findByClienteAndFechaIngreso(cliente, fechaIngreso);
+	}
+	
+	//Eliminar
+	public boolean eliminarIngreso(String id) {
+		try {
+			ingresoRepository.deleteById(id);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			return false;
+		}
 	}
 
 }
